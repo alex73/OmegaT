@@ -72,7 +72,6 @@ public class GITRemoteRepository implements IRemoteRepository {
         repository = Git.open(localDirectory).getRepository();
     }
 
-    @Override
     public boolean isChanged(File file) throws Exception {
         String relativeFile = FileUtil.computeRelativePath(repository.getWorkTree(), file);
         Status status = new Git(repository).status().call();
